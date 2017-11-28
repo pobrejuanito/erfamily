@@ -1606,3 +1606,8 @@ ul.services li {
 	float: none;
 }
 }
+.servicesicon {
+	border-radius:50%;
+	overflow:hidden;
+	border: 1px #b4b4b5 solid;
+}
