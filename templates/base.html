@@ -1,0 +1,184 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="If you’re searching for a great dentist for your whole family, East Ridge Family Dental is the answer. We proudly serve all child and adult general and cosmetic dentistry needs. Whether you need a basic dental check-up or an extraction, we’re here for you." />
+<meta name="keywords" content="Dr. Curtis L. Carruthers,Carruthers, DDS, dentist, family dentist, East Ridge, Tennessee, Chattanooga, crown, root canal, bridge, implant"/>
+<meta name="author" content="Digital Bridge IT" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+<link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}"/>
+<title>East Ridge Family Dental - Dr. Curtis L. Carruthers, DDS </title>
+<!--google web font-->
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
+<!--style sheets-->
+<link rel="stylesheet" media="screen" href="{% static 'css/style.css' %}"/>
+<link rel="stylesheet" media="screen" href="{% static 'css/skeleton.css' %}"/>
+<link rel="stylesheet" media="screen" href="{% static 'css/navigation.css' %}"/>
+<link rel="stylesheet" media="screen" href="{% static 'css/font-awesome.min.css' %}">
+<!--jquery libraries / others are at the bottom-->
+<script src="{% static 'js/jquery-1.9.1.min.js'  %}" type="text/javascript"></script>
+<script src="{% static 'js/modernizr.js'  %}" type="text/javascript"></script>
+<!--flex slider scripts starts-->
+<link rel="stylesheet" media="screen" href="{% static 'css/flexslider.css' %}"/>
+<script src="{% static 'js/jquery.flexslider-min.js'  %}" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+$('.image-slider-fullwidth').flexslider({
+    	animation: "fade",
+		slideshowSpeed: 4000,
+		animationDuration: 500,
+    	controlNav: true,
+    	keyboardNav: true,
+    	directionNav: false,
+		pauseOnHover: true,
+		pauseOnAction: true    
+});
+});
+</script>
+<!--flex slider scripts ends-->
+
+<!--prettyPhoto scripts starts-->
+<link rel="stylesheet" media="screen" href="{% static 'css/prettyPhoto.css' %}"/>
+<script src="{% static 'js/jquery.prettyPhoto.js'  %}" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+$('a[data-rel]').each(function() {
+  $(this).attr('rel', $(this).data('rel'));
+});
+$("a[rel^='prettyPhoto[gallery1]']").prettyPhoto({
+  animation_speed: 'fast',
+  slideshow: 5000,
+  autoplay_slideshow: false,
+  opacity: 0.80,
+  show_title: false,
+  theme: 'pp_default', /* light_rounded / dark_rounded / light_square / dark_square / facebook */
+  overlay_gallery: false,
+  social_tools: false,
+  changepicturecallback: function(){
+  var $pp = $('.pp_default');
+  if( parseInt( $pp.css('left') ) < 0 ){
+  $pp.css('left', 0 );
+  }
+  }
+});
+});
+</script>
+<!--date picker scripts starts-->
+<script src="{% static 'js/jquery-ui-1.8.21.custom.min.js' %}" type="text/javascript"></script>
+<link rel="stylesheet" media="screen" href="{% static 'css/jquery-ui-1.8.21.custom.css' %}"/>
+<script type="text/javascript">
+$(function() {
+		$( "#datepicker1, #datepicker2" ).datepicker({
+			showOn: "button",
+			buttonImage: "{% static 'images/calendar.gif' %}",
+			buttonImageOnly: true,
+			minDate: 0
+		});
+	});
+</script>
+<!--date picker scripts ends-->
+<!--prettyPhoto scripts ends-->
+
+<!--carousel scripts starts-->
+<link rel="stylesheet" media="screen" href="{% static 'css/jcarousel.css' %}"/>
+<script src="{% static 'js/jquery.jcarousel.min.js'  %}" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function() {	
+var scrollCount;
+scrollCount = 1;
+$('#mycarousel').jcarousel({
+       easing: 'easeInOutQuint',
+       animation: 600,
+       scroll    : scrollCount
+});
+});
+</script>
+<!--carousel scripts ends-->
+
+</head>
+<body>
+  <!--wrapper_outer starts-->
+<div id="wrapper_outer"> 
+    
+    <!--header starts-->
+    <div id="header">
+      <div class="container clearfix"> 
+        
+        <!--logo starts-->
+        <div class="four columns logo">
+          <h1><a href="/"><img src="{% static 'images/logo.png' %}" width="150" height="40" alt="logo"></a></h1>
+        </div>
+        <!--logo ends--> 
+        
+        <!--navigation starts-->
+        <div id="nav" class="twelve columns">
+          <ul class="sf-menu">
+            <li><a href="/" class="current">Home </a></li>
+            <li><a href="about.html">About </a></li>
+            <li><a href="services.html">Services </a></li>
+            <li><a href="appointment.html">Appointment </a></li>
+            <li><a href="contact.html" class="omega">Contact </a></li>
+          </ul>
+        </div>
+        <!--navigation ends--> 
+        
+      </div>
+      <div class="clear"></div>
+    </div>
+    <!--header ends--> 
+    {% block content %}Default Body Block{% endblock %}
+
+  <!--footer_bottom starts-->
+    <div id="footer_bottom">
+          <div class="container clearfix"> 
+            
+            <!--first column starts-->
+            <div class="four columns">
+              <h5></h5>
+              <h3><a href="#"><img src="{% static 'images/logo.png' %}" width="150" height="53" alt="East Ridge Family Dentistry Logo"></a></h3>
+            </div>
+            <!--first column ends--> 
+            
+            <!--second column starts-->
+            <div class="four columns">
+              <h5>Office <strong>Hours</strong></h5>
+              <p>Mon - Fri : 8:00 am - 10:00 pm<br/>
+                Sat - Sun : 8:00 am - 6:00 pm</p>
+            </div>
+            <!--second column ends--> 
+            
+            <!--third column starts-->
+            <div class="three columns">
+              <h5>Office <strong>Location</strong></h5>
+              <p>
+                3823 Ringgold Rd<br/>
+                  Chattanooga, Tennessee<br/><br/>
+              </p>
+            </div>
+            <!--third column ends--> 
+            
+            <!--fourth column starts-->
+            <div class="five columns">
+                <h5>Make an Appointment <strong>Today!</strong></h5>
+                <h3><strong><a href="tel:423-629-6015">423-629-6015</a></strong></h3>
+            </div>
+            <!--fourth column ends--> 
+          </div>
+          <div class="clear"></div>
+    </div>
+        <!--footer_bottom ends-->
+    <div class="clear"></div>
+</div>
+<!--wrapper_outer ends--> 
+    
+    <!--other jqueries required--> 
+    <script src="{% static 'js/jquery.easing.1.3.js'  %}" type="text/javascript"></script> 
+    <script src="{% static 'js/jquery.validate.js'  %}" type="text/javascript"></script> 
+    <script src="{% static 'js/jquery.form.js'  %}" type="text/javascript"></script> 
+    <script src="{% static 'js/jquery.superfish.js'  %}" type="text/javascript"></script> 
+    <script src="{% static 'js/jquery.supersubs.js'  %}" type="text/javascript"></script> 
+    <script src="{% static 'js/twitter.js'  %}" type="text/javascript"></script> 
+    <script src="{% static 'js/custom.js'  %}" type="text/javascript"></script>
+    </body>
+    </html>

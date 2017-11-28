@@ -7,9 +7,8 @@ from validate_email import validate_email
 from django.conf import settings
 
 # Create your views here.
-def index(request):
+def appointment(request):
 
-    page_data = {}
     if request.method == 'POST':
         message = 'Appointment Request' + "\n"
         message += 'Name: ' + request.POST.get('booking_guest_name') + "\n"
@@ -20,10 +19,8 @@ def index(request):
         message += 'Message: ' + request.POST.get('booking_comments') + "\n\n"
         message += settings.EMAIL_SIGNATURE
         send_mail(settings.EMAIL_APPOINTMENT_SUBJECT, message,  settings.EMAIL_TO, [settings.EMAIL_TO], fail_silently=False)
-        return JsonResponse({})
+    return JsonResponse({})
 
-    page_data.update(csrf(request))
-    return render_to_response('home.html', page_data)
 
 def sendmessage(request):
 

@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+  <!--wrapper starts-->
+  <div id="wrapper"> 
+        
+    <!--page_header starts-->
+    <div id="page_header">
+        <div class="container clearfix">
+        <div class="eight columns">
+            <h1>About <strong>Us</strong></h1>
+        </div>
+        <div class="eight columns">
+            <ul class="social">
+            <li>
+                <p>LIKE US</p>
+            </li>
+            <li><a href="https://www.facebook.com/East-Ridge-Family-Dental-234901946564546/" target="_blank"><img src="{% static 'images/icons/facebook.png' %}" alt="icon"></a></li>
+            </ul>
+        </div>
+        </div>
+    </div>
+    <!--page_header ends--> 
+        
+    <!--content starts-->
+    <div id="content">
+            <div class="container clearfix"> 
+                
+                <!--content_withsidebar starts-->
+                <div id="content_withsidebar" class="two-thirds column">
+                <p class="text_big"> Contact us for more information and inquiries or just say hello!
+                    We will get back to you as soon as possible.</p>
+                
+                <!--contact form starts-->
+                <div class="seven columns alpha omega">
+                    <form  id="contactform" method="POST" action="/sendmessage/">
+                    {% csrf_token %}
+                    <fieldset>
+                        <ul>
+                        <li>
+                            <label>Name </label>
+                            <input name="form_name" />
+                        </li>
+                        <li>
+                            <label>Email </label>
+                            <input name="form_email" class="required email"/>
+                        </li>
+                        <li>
+                            <label>Phone </label>
+                            <input name="form_phone" />
+                        </li>
+                        <li>
+                            <label>Message </label>
+                            <textarea name="form_message" id="message" class="required"></textarea>
+                        </li>
+                        <li>
+                            <input class="submit" type="submit" value="Send Message"/>
+                            <div id="result"></div>
+                        </li>
+                        </ul>
+                    </fieldset>
+                    </form>
+                </div>
+                <!--contact form ends--> 
+                
+                <!--map starts-->
+                <div class="four columns alpha omega">
+                    <iframe class="map" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3268.291959180262!2d-85.25778993467989!3d34.99939596523576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8860677225adfe29%3A0xd8dae448a521d579!2s3823+Ringgold+Rd!5e0!3m2!1sen!2sus!4v1511840054568"></iframe>
+                </div>
+                <!--map ends--> 
+                
+                </div>
+                <!--content_withsidebar ends--> 
+                
+                <!--sidebar starts-->
+                <div class="one-third column">
+                <div id="sidebar"> 
+                    
+                    <!--address-->
+                    <h5>We are <strong>Here</strong></h5>
+                    <p>3823 Ringgold Rd<br/>
+                        Chattanooga, Tennessee</p>
+                    <div class="divider"></div>
+                    
+                    <!--call-->
+                    <h5>Call our <strong>office</strong></h5>
+                    <p>423-629-6015</p>
+                    <div class="divider"></div>
+                    
+                    <!--mail-->
+                    <h5>General <strong>Inquiry</strong></h5>
+                    <p> <a href="#">info@spaname.com</a><br/>
+                    <div class="clear"></div>
+                </div>
+                </div>
+                <!--sidebar ends--> 
+                
+            </div>
+            <div class="clear"></div>
+            </div>
+            <!--content ends--> 
+    <div class="clear"></div>
+</div>
+<!--wrapper ends--> 
+{% endblock %}
